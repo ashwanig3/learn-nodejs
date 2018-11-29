@@ -1,0 +1,19 @@
+body {
+    background-color: grey;
+}
+input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+}
+form {
+    margin: 0 auto;
+    width: 30%;
+}
+textarea {
+    margin-top: 20px;
+}
+h1 {
+    text-align: center;
+}
