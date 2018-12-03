@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Edit form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="container">
+            
+            <!-- <h1> <%= 'Previous Task Description -' +  todo[0].description %></h1> -->
+            <form action=<%= '/todos/' + todo[0].id + '/edit' %> method="post" class="edit-form">
+                <input type="hidden" name="_method" value="PUT">
+                <h1 class="heading">Edit the task</h1>
+                <a class="add-btn" href="/">All Todos</a>
+                <p class="prev-task"> <%= 'Previous Task Name -' +  todo[0].todo %></p>
+                <input type="text" name="todo" placeholder="Edit your task..." />
+                <button class="btn" type="submit">submit</button>
+            </form>
+    </div>
+    
+</body>
+</html>
