@@ -1,5 +1,3 @@
-import { Redirect } from 'react-router-dom'
-
 const url = 'http://localhost:4000'
 
 
@@ -33,11 +31,31 @@ export const signUpAction = (data) => {
       }).then(res => res.json())
       .then(data => {
         console.log(data)
-        if(data.responseStatus === '200') {
+        if(data.userData._id) {
           dispatch({type: 'LOGIN_SUCCESS', data: data.userData})
         } else {
           dispatch({type: 'LOGIN_ERR', errData: data})
         }
       })
+    }
+  }
+
+  export const postArticle = (data) => {
+    return (dispatch) => {
+      fetch(`${url}/new`, {
+        method: 'POST',
+        headers: {
+          "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(data)
+      }).then(res => res.json())
+        .then(data => {
+          console.log(data)
+          if(data.blog._id) {
+            dispatch({type: 'PUBLISHED_SUCCESS', data})
+          } else {
+            dispatch({type: "PUBLISHED_UNSUCCESS", errData: data})
+          }
+        })
     }
   }

@@ -13,14 +13,22 @@ mongoose.connect('mongodb://localhost/mediumClone', { useNewUrlParser: true },  
   else console.log('Connected to mongodb');
 });
 
-var userSchema = new Schema({
+const userSchema = new Schema({
     name: String,
     username:String,
     email:String,
     password: String
   });
 
+  const articleSchema = new Schema({
+    title: String,
+    description: String,
+    body: String,
+    claps: Number
+  })
+
   const Users = mongoose.model('Users',userSchema);
+  const Articles = mongoose.model('Articles', articleSchema)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}));
@@ -74,6 +82,39 @@ app.post('/login', (req, res) => {
   })
 })
 
+app.post('/new', (req, res) => {
+  const blogDetails = req.body;
+  var newArticle = new Articles({ title: blogDetails.title,
+                                 description: blogDetails.description,
+                                  body: blogDetails.body,
+                                   claps: blogDetails.claps })
+  newArticle.save((err, blogDetails) => {
+    if(err) {
+      res.json({
+        msg: 'Error'
+      })
+    } else {
+      res.json({
+        blog: blogDetails
+      })
+    }
+  })
+})
+
+
+app.get('/articles', (req, res) => {
+  Articles.find((err, data) => {
+    if(err) {
+      res.json({
+        msg: 'Could not find'
+      })
+    } else {
+      res.json({
+        data
+      })
+    }
+  })
+})
 
 
 app.listen(port, () => {
