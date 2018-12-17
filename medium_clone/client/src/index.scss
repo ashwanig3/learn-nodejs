@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.signup-form {
+  margin: 50px auto;
+  width: 33%;
+}
+.signup-form h1 {
+  text-align: center;
+}
+.signup-form input {
+  display: block;
+  margin-top: 30px;
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 3px;
+  outline: none;
+  border: 0.5px solid rgba(0,0,0,0.5)
+}
+.signup-form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+}
+.auth {
+  margin-right: 20px;
+  text-decoration: none;
+  color: grey;
+  border: .5px solid rgba(0,0,0,0.5);
+  border-radius: 5px;
+  padding: 7px 20px;
+  font-size: 14px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 10px; */
+  box-shadow: 0 0 7px .5px #bdc0c8;
+}
+.pen-icon {
+  font-size: 40px;
+}
+.medium-heading {
+  margin-left: 80px;
+}
+.profile-img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: grey;
+  outline: none;
+}
+
+.new-story {
+  margin: 0 auto;
+  width: 60%;
+}
+.new-story-form input{
+  display: block;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 20px;
+}
+.new-story-form textarea {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+}
+.articles-container {
+  width: 80%;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+.articles-container h1{
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+}
+.articles-container h1:hover {
+  text-decoration: underline;
+}
+.article-details {
+  margin: 0 auto;
+  width: 70%;
+}
+.article-details span {
+  font-size: 20px;
+  font-weight: 300;
+  color: gray;
+}
+.article-details p{
+  font-size: 18px;
+  line-height: 2rem;
+}
+.article-link {
+  text-decoration: none;
+  color: grey;
+  font-size: 14px;
+}
