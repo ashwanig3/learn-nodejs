@@ -17,6 +17,7 @@ export default function rootReducer(state = initState,  action) {
             console.log(user)
             return {
                 currentUserData: user,
+                allBlogs: [...state.allBlogs],
                 currentUserId: action.data._id
             }
         }
@@ -34,6 +35,20 @@ export default function rootReducer(state = initState,  action) {
             }
             
             
+        }
+        case 'LOGOUT_SUCCESS': {
+            return {
+                ...state,
+                allBlogs: [...state.allBlogs],
+                currentUserData: {},
+                currentUserId: ''
+            }
+        }
+        case 'STORE_ARTICLES': {
+            return {
+                ...state,
+                allBlogs: action.data
+            }
         }
         
         default:

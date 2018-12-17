@@ -116,3 +116,22 @@ code {
   color: grey;
   font-size: 14px;
 }
+.user-profile {
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+.user-info {
+  margin: 50px auto;
+  width: 35%;
+  .profile-img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    background-color: grey;
+  }
+  h1 {
+    margin: 0;
+    text-align: center;
+    margin-right: 40px;
+  }
+}

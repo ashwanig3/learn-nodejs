@@ -60,31 +60,23 @@ require('./server/modules/passport')(passport)
 app.use(cors());
 
 
-
-
-
-// app.post('/login', (req, res) => {
-//   const userCred = req.body;
-//   Users.findOne({username: userCred.username}, (err, data) => {
-//     if(err) {
-//       res.json({
-//         msg: 'Invalid Username or Password'
-//       })
-//    } else {
-//      res.json({
-//       userData: data
-//      })
-//     }
-//   })
-// })
-  
-app.post('/login', 
-passport.authenticate('local', { failureRedirect: '/login' }), 
-function(req, res) {
-  return res.json({ userData: req.user })
-}
-);
-
+app.post('/api/login', function(req, res, next) {
+  passport.authenticate('local', function(err, user, info) {
+    console.log(user)
+    if (err) { return next(err); }
+    if (!user) { 
+      return res.status(404).json({
+        msg: 'Please SignUp. Account not avilable.'
+      }) 
+    }
+    req.logIn(user, function(err) {
+      if (err) { return next(err); }
+      return res.status(200).json({
+        user 
+      })
+    });
+  })(req, res, next);
+});
 
 app.use(require('./routes/routes'));
 app.use(require('./routes/api'));

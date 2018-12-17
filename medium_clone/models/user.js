@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const bcrypt = require('bcrypt')
+const SALT_FACTOR = 10;
 
 const userSchema = new Schema({
     name: String,
@@ -9,9 +11,7 @@ const userSchema = new Schema({
   });
 
   userSchema.methods.verifyPassword = function(userPassword, cb) {
-    // this.password == userPassword
     bcrypt.compare(userPassword, this.password, function(err, res) {
-      console.log(err);
       if(err) cb(err, false);
       cb(null, res);
     })

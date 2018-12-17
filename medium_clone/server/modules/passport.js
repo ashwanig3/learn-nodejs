@@ -16,11 +16,17 @@ module.exports = function(passport) {
     function(username, password, done) {
       User.findOne({ username: username }, function (err, user) {
         if (err) { return done(err); }
-          if (password != user.password) {
-            return done(null, false)
-          }
-          return done(null, user);
- 
+        if (!user) { return done(null, false); }
+        if(user.password === password) {
+          return done(null, user)
+        }
+        return done(null, false)
+        // user.verifyPassword(password, function(err, isMatched) {
+        //   if (!isMatched) {
+        //     return done(null, false)
+        //   }
+        //   return done(null, user);
+        // }) 
       });
     }
   ));

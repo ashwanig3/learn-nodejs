@@ -22,6 +22,7 @@ handleSubmit = (e) => {
 
   render() {
       const { userId } = this.props;
+      console.log(userId)
       if(userId) {return(<Redirect to='/' />)
     } else {
         return (

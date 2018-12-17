@@ -1,19 +1,17 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-export default class Articles extends Component {
-    state = {
-        articles: []
-    }
+import { setInitialUser, getAllArticles } from '../action/action';
+import { connect } from 'react-redux';
 
-    componentWillMount = () => {
-        fetch('http://localhost:4000/api/articles')
-        .then(res => res.json())
-        .then(data => this.setState({
-            articles: data.data
-        }))
+ class Articles extends Component {
+
+    componentDidMount = () => {
+    this.props.dispatch(getAllArticles())
+     this.props.dispatch(setInitialUser())
+        
     }
   render() {
-      const { articles } = this.state;
+      const { articles } = this.props;
     return (
       <div className="articles-container">
         {
@@ -28,3 +26,11 @@ export default class Articles extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        articles : state.allBlogs
+    }
+}
+
+export default connect(mapStateToProps)(Articles);

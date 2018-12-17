@@ -6,6 +6,7 @@ import Header from './components/Header';
 import CreateArticle from './components/CreateArticle';
 import Articles from './components/Articles';
 import ArticleDetails from './components/ArticleDetails';
+import Profile from './components/Profile';
 
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
             <Route exact path='/create' component={CreateArticle} />
             <Route exact path='/' component={Articles} />
             <Route exact path='/articles/:id' component={ArticleDetails} />
+            <Route exact path='/users/:id' component={Profile} />
           </Switch>
           
         </div>

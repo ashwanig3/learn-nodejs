@@ -9,9 +9,11 @@ router.get('/', (req, res) => {
   })
 
 
-router.post('/new', articles.newArticle);
+router.post('/api/new', articles.newArticle);
 
-router.post('/signup', users.signup )
+router.post('/api/signup', users.signup )
+
+router.get('/api/logout', users.logout )
 
 
 

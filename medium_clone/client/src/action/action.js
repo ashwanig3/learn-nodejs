@@ -1,4 +1,4 @@
-const url = 'http://localhost:4000'
+const url = 'http://localhost:4000/api'
 
 
 export const signUpAction = (data) => {
@@ -30,9 +30,9 @@ export const signUpAction = (data) => {
         body : JSON.stringify(data)
       }).then(res => res.json())
       .then(data => {
-        console.log(data)
-        if(data.userData._id) {
-          dispatch({type: 'LOGIN_SUCCESS', data: data.userData})
+        console.log(data.user)
+        if(data.user._id) {
+          dispatch({type: 'LOGIN_SUCCESS', data: data.user})
         } else {
           dispatch({type: 'LOGIN_ERR', errData: data})
         }
@@ -59,3 +59,32 @@ export const signUpAction = (data) => {
         })
     }
   }
+
+export function setInitialUser() {
+  return dispatch => {
+    fetch('/api/isLoggedIn')
+    .then(res => res.json()) 
+    .then(data =>{
+      dispatch({type: 'LOGIN_SUCCESS', data: data.user})
+    })
+  } 
+}
+
+export function loggedOut() {
+  return dispatch => {
+    fetch('/api/logout').then(res => res.json())
+    .then(data => {
+      dispatch({type: 'LOGOUT_SUCCESS', data})
+    })
+  }
+}
+
+export function getAllArticles() {
+  return (dispatch) => {
+    fetch('/api/articles').then(res => res.json())
+    .then(data => {
+      
+      dispatch({type: 'STORE_ARTICLES', data: data.data})
+    })
+  }
+}
