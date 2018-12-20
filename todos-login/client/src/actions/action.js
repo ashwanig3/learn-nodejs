@@ -34,7 +34,7 @@ export const signUpAction = (data) => {
         if(data.user._id) {
           dispatch({type: 'LOGIN_SUCCESS', data: data.user})
         } else {
-          dispatch({type: 'LOGIN_ERR', errData: data})
+          dispatch({type: 'LOGIN_ERR', data})
         }
       })
     }

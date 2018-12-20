@@ -9,9 +9,12 @@ class Header extends Component {
         this.props.dispatch(loggedOut());
     }
   render() {
+      const { userData } = this.props;
+      console.log(userData)
     return (
       <header className="header">
         <nav>
+             <span className="username header-link">{userData.name}</span>
             <ul>
                 <li>
                     <Link to={`/user/${this.props.userId}/todos`} className="auth-link header-link">What todo?</Link>
@@ -29,7 +32,8 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        userId: state.currentUserId
+        userId: state.currentUserId,
+        userData: state.currentUserData.userInfo
     }
 }
 

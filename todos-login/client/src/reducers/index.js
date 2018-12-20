@@ -1,6 +1,7 @@
 const initState = {
     currentUserData: {},
-    currentUserId: ''
+    currentUserId: '',
+    errMsg: ''
 }
 
 export default function rootReducer(state=initState, action) {
@@ -17,6 +18,13 @@ export default function rootReducer(state=initState, action) {
             return {
                 currentUserData: user,
                 currentUserId: action.data._id
+            }
+        }
+        case 'LOGIN_ERR': {
+            console.log(action.data)
+            return {
+                ...state,
+                errMsg: action.data
             }
         }
         case 'GETTING_SUCCESSFULL': {
