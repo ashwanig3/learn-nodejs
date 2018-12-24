@@ -27,13 +27,14 @@ class Signup extends Component {
     return (
       <div className="signup-container">
          <form action="/signup" method="post" onSubmit={this.handleSubmit} className="signup-form">
-                    <h1>SignUp Form</h1>
-                    <input type="text" placeholder="Fullname" name="name" onChange={this.handleChange} />
-                    <input type="text" placeholder="Username" name="username" onChange={this.handleChange} />
-                    <input type="text" placeholder="Email" name="email" onChange={this.handleChange} />
-                    <input type="password" placeholder="Password" name="password" onChange={this.handleChange} />
-                    <button type="submit" onSubmit={this.handleSubmit}>submit</button>
-                    <Link to="/login" className="signup-link">Have Account?</Link>
+            <h1>SignUp Form</h1>
+            <input type="text" placeholder="Fullname" required name="name" onChange={this.handleChange} />
+            <input type="text" placeholder="Username" required name="username" onChange={this.handleChange} />
+            <input type="text" placeholder="Email" required name="email" onChange={this.handleChange} />
+            <input type="password" placeholder="Password" required name="password" onChange={this.handleChange} />
+            <button type="submit" onSubmit={this.handleSubmit}>submit</button>
+            <Link to="/login" className="signup-link">Have Account?</Link>
+            <a href='/auth/google' className="google-btn">Login with Google</a>
          </form>
          
       </div>

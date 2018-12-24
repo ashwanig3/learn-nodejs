@@ -3,7 +3,6 @@ const passport = require('passport')
 
 module.exports = {
     signUp: (req, res) => {
-      console.log(req.body)
         const userData = req.body;
 
 
@@ -57,6 +56,8 @@ module.exports = {
       })(req, res, next);
     },
    isLoggedIn : (req, res) => {
+     console.log("called")
+     console.log(req.user)
       if(req.user) {
         User.findOne({_id : req.user._id}, (err, data) => {
           if(data) {

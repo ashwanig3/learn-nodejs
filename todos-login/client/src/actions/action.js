@@ -110,3 +110,13 @@ export const signUpAction = (data) => {
     }
   }
   
+
+  export function loginByGoogle() {
+    return dispatch => {
+      fetch('/auth/google/callback').then(res => res.json())
+      .then(data => {
+        console.log(data)
+        dispatch({type: 'LOGIN_SUCCESS_GOOGLE', data})
+      })
+    }
+  }

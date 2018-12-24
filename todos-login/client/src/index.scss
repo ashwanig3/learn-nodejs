@@ -138,8 +138,11 @@ color: white;
   text-decoration: none;
   color: black;
   text-align: center;
+  letter-spacing: 0.06rem;
 }
-
+.signup-link:hover {
+  text-decoration: underline;
+}
 // ======================================
 // Todo-container
 // ======================================
@@ -219,4 +222,15 @@ color: white;
   button:hover {
     color: white;
   }
+}
+
+.google-btn {
+  display: block;
+  width: 90%;
+  color: black;
+  text-decoration: none;
+  margin-top: 10px;
+}
+.google-btn:hover {
+  text-decoration: underline;
 }
