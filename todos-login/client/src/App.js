@@ -5,6 +5,7 @@ import Login from './components/Login';
 import CreateTodo from './components/CreateTodo';
 import Todo from './components/Todo';
 import Home from './components/Home';
+import TodoDetail from './components/TodoDetail';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <Route exact path='/login' component={Login} />
             <Route exact path='/create' component={CreateTodo} />
             <Route exact path='/user/:id/todos' component={Todo} />
+            <Route exact path='/:username/todos/:id' component={TodoDetail} />
         </Switch>
           
         </div>

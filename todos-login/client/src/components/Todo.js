@@ -17,7 +17,8 @@ class Todo extends Component {
     }
 
   render() {
-      const { todos, userId } = this.props;
+      const { todos, userId, username } = this.props;
+      console.log(username)
       if(!userId) { return <Redirect to='/' />}
       else {
         return (
@@ -33,7 +34,7 @@ class Todo extends Component {
                 {
                 todos && todos.map(todo => 
                 <li>
-                   <span>{todo.title}</span>
+                   <Link to={`/${username}/todos/${todo._id}`}>{todo.title}</Link>
                    <div>
                         <button id={todo._id} onClick={this.deleteTodo}>delete</button>
                    </div>
@@ -54,7 +55,8 @@ class Todo extends Component {
 const mapStateToProps = (state) => {
     return {
         userId: state.currentUserId,
-        todos: state.currentUserData.userData
+        todos: state.currentUserData.userData,
+        username: state.currentUserData.userInfo.username
     }
 }
 

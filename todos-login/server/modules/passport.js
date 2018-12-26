@@ -35,7 +35,7 @@ module.exports = function(passport) {
     callbackURL: "http://localhost:8000/auth/google/callback"
   },
   function(res, token, tokenSecret, profile, done) {
-    console.log(profile)
+    
     const newUser = new User({
       name : profile.displayName,
       email : profile.emails[0].value,

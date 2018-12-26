@@ -9,6 +9,7 @@ class CreateTodo extends Component {
     state={
         title: '',
         description: '',
+        createdOn: new Date(),
         userId: this.props.userId
     }
 
